@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Report</h1>
+{% if success %}
+    <p>Password meets all requirements!</p>
+{% else %}
+    <ul>
+        {% for error in errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% if warning %}
+        <p><strong>{{ warning }}</strong></p>
+    {% endif %}
+    <button onclick="window.location.href='{{ url_for('index') }}'">Go Back</button>
+{% endif %}
+{% endblock %}
